@@ -46,17 +46,50 @@ namespace series
 
         private static void VizualizarSerie()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Digite o id da série: ");
+            var indiceInput = int.Parse(Console.ReadLine());
+
+            var serie = repositorio.RetornaPorId(indiceInput);
+
+            Console.WriteLine(serie);
         }
 
         private static void ExcluirSerie()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Digite o id da série: ");
+            var indiceInput = int.Parse(Console.ReadLine());
+
+            repositorio.Excluir(indiceInput);
         }
 
         private static void AtualizarSerie()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Digite o id da série: ");
+            var indiceInput = int.Parse(Console.ReadLine());
+
+            foreach (int i in System.Enum.GetValues(typeof(Genero)))
+            {
+                Console.WriteLine($"{i}-{System.Enum.GetName(typeof(Genero), i)}");
+            }
+            Console.WriteLine("Digite o genero entre as opções acima: ");
+            var generoInput = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o titulo da serie: ");
+            string tituloInput = Console.ReadLine();
+
+            Console.Write("Digite o ano de inicio da Série: ");
+            int anoInput = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite a descrição da Série: ");
+            string descricaoInput = Console.ReadLine();
+
+            Serie novaSerie = new Serie(id: indiceInput,
+                                        genero: (Genero)generoInput,
+                                        titulo: tituloInput,
+                                        ano: anoInput,
+                                        descricao: descricaoInput);
+
+            repositorio.Atualizar(indiceInput, novaSerie);
         }
 
         private static void InserirSerie()

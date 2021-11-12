@@ -28,6 +28,7 @@ namespace series.Classes
             retorno += $"Titulo: {this.Titulo}{Environment.NewLine}";
             retorno += $"Descrição: {this.Descricao}{Environment.NewLine}";
             retorno += $"Ano Inicio: {this.Ano}{Environment.NewLine}";
+            retorno += $"Excluido: {this.Excluido}";
             return retorno;
         }
 
